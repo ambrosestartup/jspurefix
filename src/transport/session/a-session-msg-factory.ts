@@ -31,9 +31,9 @@ export abstract class ASessionMsgFactory implements ISessionMsgFactory {
   }
 
   // see implementations Ascii and Fixml
-  public abstract logon (userRequestId: string, isResponse: boolean): ILooseObject
+  public abstract logon (userRequestId?: string, isResponse?: boolean): ILooseObject
   public abstract logout (msgType: string, text: string): ILooseObject
-  public abstract header (msgType: string, seqNum: number, time: Date, overrideData?: Partial<IStandardHeader>): ILooseObject
+  public abstract header (msgType?: string, seqNum?: number, time?: Date, overrideData?: Partial<IStandardHeader>): ILooseObject
 
   protected mutate (o: ILooseObject, type: string): ILooseObject {
     return this.mutator ? this.mutator(this.description, type, o) : o
